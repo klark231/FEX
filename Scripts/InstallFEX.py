@@ -358,7 +358,7 @@ def GetKernelVersion():
     return platform.uname().release.split("-")[0]
 
 def IsSupportedKernel():
-    return version_check(GetKernelVersion()) >= version_check("5.15")
+    return version_check(GetKernelVersion()) >= version_check("5.10")
 
 def main():
     # Only run on supported arch
@@ -368,7 +368,7 @@ def main():
 
     # Only run on a new enough kernel
     if not IsSupportedKernel():
-        print ( "Kernel {} is too old. FEX needs 5.15 minimum".format(GetKernelVersion()))
+        print ( "Kernel {} is too old. FEX needs 5.10 minimum".format(GetKernelVersion()))
         ExitWithStatus(-1)
 
     if not IsSupportedDistro():
